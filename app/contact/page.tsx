@@ -12,7 +12,7 @@ export default function Contact() {
         </Link>
 
         <p className="text-gray-400 text-sm mb-6">
-          Have any suggestions are just wanna talk? Feel free to reach talk to me.
+          Have any suggestions? Just wanna talk? Feel free to reach out to me.
         </p>
 
         <div className="space-y-4">
