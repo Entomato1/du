@@ -4,7 +4,16 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gray-950 text-white p-6 relative overflow-hidden">
       
-      {/* Background decoration */}
+      <div className="absolute top-6 right-6 z-20">
+        <Link 
+          href="/contact" 
+          className="px-5 py-2 bg-gray-900 border border-gray-800 text-gray-300 font-semibold rounded-full hover:bg-gray-800 hover:text-white transition-all shadow-md"
+        >
+          Contact
+        </Link>
+      </div>
+
+      
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-emerald-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
 
@@ -14,7 +23,7 @@ export default function Home() {
         </h1>
         
         <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-          The fastest, most accurate way to audit your rosters and calculate blockbuster dynasty trades. Stop guessing, start winning.
+          WELCOME! This is a little passion project for fantasy football dynasty leagues. Hope you enjoy!
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
