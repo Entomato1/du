@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 type Player = {
   id: string;
@@ -71,16 +72,13 @@ export default function Calculator() {
     .filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
     .slice(0, 50);
 
-  // --- NEW SLIDER MATH ---
-  // We cap the visual extreme at a 5,000 point difference. 
-  // Any difference larger than 5k will just pin the slider to the absolute edge.
+  // --- SLIDER MATH ---
   const maxDiff = 5000; 
-  let sliderPos = 50; // Default to dead center
+  let sliderPos = 50; 
 
   if (totalValueA > 0 || totalValueB > 0) {
-    const diff = totalValueB - totalValueA; // Negative means A is winning, Positive means B is winning
+    const diff = totalValueB - totalValueA; 
     sliderPos = 50 + (diff / maxDiff) * 50;
-    // Clamp the value so the slider doesn't fly off the screen if the trade is insanely lopsided
     sliderPos = Math.max(0, Math.min(100, sliderPos));
   }
 
@@ -88,10 +86,15 @@ export default function Calculator() {
     <main className="flex min-h-screen flex-col items-center bg-gray-950 text-white p-6 relative overflow-hidden">
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-10"></div>
 
-      <header className="w-full max-w-5xl py-6 border-b border-gray-800 mb-10 flex justify-between items-center z-10">
-        <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 tracking-tight">
-          DynastyHub Calculator
-        </h1>
+      <header className="w-full max-w-5xl py-6 border-b border-gray-800 mb-10 flex flex-col sm:flex-row gap-4 justify-between items-center z-10">
+        <div>
+          <Link href="/" className="text-sm text-gray-400 hover:text-blue-400 transition-colors mb-2 inline-block">
+            &larr; Back to Home
+          </Link>
+          <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 tracking-tight">
+            Ento's DynastyHub Calculator
+          </h1>
+        </div>
         <span className="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full uppercase tracking-widest border border-gray-700">
           Values provided currently by FantasyCalc
         </span>
